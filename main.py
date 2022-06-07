@@ -13,7 +13,7 @@ html = requests.get(url).content
 data = BeautifulSoup(html, 'html.parser')
 
 # get h1 with list name
-listname = data.select('h1')[0].text.strip().replace("Wiktionary:Frequency lists/", "") + ".txt"
+listname = data.select('h1')[0].text.strip().replace("Wiktionary:Frequency lists/", "").replace(" ","_") + ".txt"
 file1 = open(listname, "w", encoding="utf8")
 
 # finding parent <ol> tag
